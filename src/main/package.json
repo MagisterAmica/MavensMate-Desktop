@@ -8,17 +8,19 @@
     "email": "ferraro.joseph@gmail.com",
     "url": "https://github.com/joeferraro"
   },
-  "license": "GPLv3",
+  "license": "GPL-3.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/joeferraro/MavensMate-Desktop.git"
   },
   "dependencies": {
+    "babel-runtime": "^6.26.0",
     "bluebird": "2.9.34",
     "electron-squirrel-startup": "1.0.0",
+    "keytar": "4.11.0",
     "mavensmate": "1.0.0-beta.32",
     "node-uuid": "1.4.7",
-    "nslog": "3.0.0",
+    "nslog": "3.2.0",
     "react": "0.14.3",
     "react-addons-update": "^15.3.1",
     "react-dom": "0.14.3",
@@ -29,5 +31,12 @@
     "redux-devtools-log-monitor": "1.0.0-beta-3",
     "redux-thunk": "1.0.0",
     "svg-inline-react": "1.0.2"
+  },
+  "devDependencies": {
+    "electron-builder": "^21.0.0",
+    "electron": "1.7.16"
+  },
+  "scripts": {
+    "postinstall": "electron-builder install-app-deps"
   }
 }
