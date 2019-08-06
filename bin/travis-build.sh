@@ -31,7 +31,6 @@ npm -v
 
 npm install
 
-./node_modules/.bin/electron-rebuild --module-dir app/node_modules
 ls
 
 node bin/clean.js
