@@ -27,10 +27,7 @@ node-gyp-install
 node -v
 npm -v
 
-npm install rimraf -g
-npm install fs-extra -g
-npm run stage
-npm run build
+npm install
 
 ./node_modules/.bin/electron-rebuild --module-dir app/node_modules
 ls
