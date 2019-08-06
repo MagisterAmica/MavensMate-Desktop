@@ -39,11 +39,12 @@ node bin/clean.js
 
 #if OS is linux or is not set
 if [ "$TRAVIS_OS_NAME" = "linux" -o -z "$TRAVIS_OS_NAME" ]; then
-    npm run dist
-
+    npm run-script dist:linux:x64
 elif [ "$TRAVIS_OS_NAME" = "osx" ]; then
     security find-identity -v -p codesigning
-    npm run dist
+    npm run dist:darwin:x64
+elif [ "$TRAVIS_OS_NAME" = "windows" ]; then
+    npm run dist:win32:x64
 fi
 
 ls dist
