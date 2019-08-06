@@ -18,6 +18,8 @@ if [ "$TRAVIS_OS_NAME" = "linux" -o -z "$TRAVIS_OS_NAME" ]; then
   sudo apt-get -y install --no-install-recommends -y icnsutils graphicsmagick xz-utils
 elif [ "$TRAVIS_OS_NAME" = "osx" ]; then
   echo running osx build
+elif [ "$TRAVIS_OS_NAME" = "windows" ]; then
+  echo running windows build
 fi
 
 # next two lines required for proper build
