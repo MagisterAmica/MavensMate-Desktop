@@ -30,7 +30,6 @@ npm -v
 npm install rimraf -g
 npm install fs-extra -g
 npm run stage
-npm install # to install app dependencies (done automagically)
 npm run build
 
 ./node_modules/.bin/electron-rebuild --module-dir app/node_modules
