@@ -1,19 +1,13 @@
 #!/bin/bash
 
-set -e
-set -x
+set -e # Automatic exit on any failure
+set -x # Print commands after they are expanded but before they are executed
 
-if [ -z "$TRAVIS_OS_NAME" ]; then
-  echo "TRAVIS_OS_NAME is unset, defaulting to linux"
-  TRAVIS_OS_NAME="linux"
-fi
+OS="${TRAVIS_OS_NAME}"
 
-if [ "$TRAVIS_OS_NAME" = "linux" ]; then
-  echo "running linux build"
-elif [ "$TRAVIS_OS_NAME" = "osx" ]; then
-  echo "running osx build"
-elif [ "$TRAVIS_OS_NAME" = "windows" ]; then
-  echo "running windows build"
+if [ -z "${OS}" ]; then
+  echo "OS is unset, defaulting to linux"
+  OS="linux"
 fi
 
 node -v
@@ -21,15 +15,16 @@ npm -v
 
 yarn install
 
-ls
-
-if [ "$TRAVIS_OS_NAME" = "linux" ]; then
-  yarn dist
-elif [ "$TRAVIS_OS_NAME" = "osx" ]; then
+if [ "${OS}" = "linux" ]; then
+  echo "running linux build"
+  yarn dist --linux
+elif [ "${OS}" = "osx" ]; then
+  echo "running osx build"
   security find-identity -v -p codesigning
-  yarn dist
-elif [ "$TRAVIS_OS_NAME" = "windows" ]; then
-  yarn dist
+  yarn dist --macos
+elif [ "${OS}" = "windows" ]; then
+  echo "running windows build"
+  yarn dist --windows
 fi
 
 ls dist
