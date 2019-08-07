@@ -13,7 +13,7 @@
     "url": "https://github.com/joeferraro/MavensMate-Desktop.git"
   },
   "scripts": {
-    "reset": "rm -rf app dist node_modules src/main/node_modules package-lock.json src/main/package-lock.json && yarn install",
+    "reset": "rm -rf app dist yarn.lock node_modules src/main/node_modules package-lock.json src/main/package-lock.json && yarn install",
     "postinstall": "electron-builder install-app-deps",
     "dev": "electron-webpack dev",
     "compile": "electron-webpack",
@@ -74,6 +74,24 @@
       "target": [
         {
           "target": "dir",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "deb",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "rpm",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "tar.gz",
           "arch": [
             "x64"
           ]
