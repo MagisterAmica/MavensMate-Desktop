@@ -14,12 +14,12 @@ module.exports = {
   init: function(config, attachMainWindow) {
     var trayIcon;
     if (process.platform === 'darwin') {
-      trayIcon = new Tray(path.join(__dirname, '..', '..', 'resources', 'tray', 'osx', 'icon.png'));
-      trayIcon.setPressedImage(path.join(__dirname, '..', '..', 'resources', 'tray', 'osx', 'icon-white.png'));
+      trayIcon = new Tray(path.join(__dirname, '..', '..', 'resources', 'static', 'tray', 'osx', 'icon.png'));
+      trayIcon.setPressedImage(path.join(__dirname, '..', '..', 'resources', 'static', 'tray', 'osx', 'icon-white.png'));
     } else if (process.platform === 'win32') {
-      trayIcon = new Tray(path.join(__dirname, '..', '..', 'resources', 'tray', 'osx', 'icon-white.png'));
+      trayIcon = new Tray(path.join(__dirname, '..', '..', 'resources', 'static', 'tray', 'osx', 'icon-white.png'));
     } else {
-      trayIcon = new Tray(path.join(__dirname, '..', '..', 'resources', 'tray', 'osx', 'icon.png'));
+      trayIcon = new Tray(path.join(__dirname, '..', '..', 'resources', 'static', 'tray', 'osx', 'icon.png'));
     }
     var systemTrayTemplate = [
       {

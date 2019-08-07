@@ -4,8 +4,8 @@ import * as actions from '../actions/actions';
 import InlineSVG from 'svg-inline-react';
 
 var GLYPHS = {
-  UTILITY: require("!svg-inline!../styles/lds/assets/icons/utility-sprite/svg/symbols.svg"),
-  STANDARD: require("!svg-inline!../styles/lds/assets/icons/standard-sprite/svg/symbols.svg")
+  UTILITY: require("!svg-inline-loader!../styles/lds/assets/icons/utility-sprite/svg/symbols.svg"),
+  STANDARD: require("!svg-inline-loader!../styles/lds/assets/icons/standard-sprite/svg/symbols.svg")
 }
 
 class ViewManager extends Component {

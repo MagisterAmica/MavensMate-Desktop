@@ -1,52 +1,92 @@
 {
-  "scripts": {
-    "postinstall": "electron-builder install-app-deps",
-    "release": "build",
-    "start": "NODE_ENV=dev electron src/main",
-    "dev": "NODE_ENV=dev node_modules/.bin/webpack-dev-server",
-    "rebuild": "electron-rebuild --module-dir app/node_modules",
-    "stage:win": "node bin\\build.js && npm install && npm run-script rebuild",
-    "stage": "node bin/build.js && npm install && npm run-script rebuild",
-    "clean": "node bin/clean.js && rm -rf app",
-    "reset": "rm -rf app dist node_modules src/main/node_modules",
-    "pack": "set NODE_ENV=production && webpack -p --config webpack.config.prod.js",
-    "build": "run-s build:linux build:darwin build:win32",
-    "build:linux": "run-s build:linux:x64 build:linux:ia32",
-    "build:darwin": "run-s build:darwin:x64",
-    "build:win32": "run-s build:win32:x64 build:win32:ia32",
-    "build:linux:ia32": "electron-packager app --out=dist --platform=linux --arch=ia32",
-    "build:linux:x64": "electron-packager app --out=dist --platform=linux --arch=x64",
-    "build:linux:armv7l": "electron-packager app --out=dist --platform=linux --arch=armv7l",
-    "build:linux:arm64": "electron-packager app --out=dist --platform=linux --arch=arm64",
-    "build:linux:mips64el": "electron-packager app --out=dist --platform=linux --arch=mips64el",
-    "build:darwin:x64": "electron-packager app --out=dist --platform=darwin --arch=x64",
-    "build:win32:ia32": "electron-packager app --out=dist --platform=win32 --arch=ia32",
-    "build:win32:x64": "electron-packager app --out=dist --platform=win32 --arch=x64",
-    "dist": "run-s dist:linux dist:darwin dist:win32",
-    "dist:linux": "run-s dist:linux:x64 dist:linux:ia32 dist:linux:armv7l dist:linux:arm64 dist:linux:mips64el",
-    "dist:darwin": "run-s dist:darwin:x64",
-    "dist:win32": "run-s dist:win32:x64 dist:win32:ia32",
-    "dist:linux:ia32": "run-s clean stage pack build:linux:ia32",
-    "dist:linux:x64": "run-s clean stage pack build:linux:x64",
-    "dist:linux:armv7l": "run-s clean stage pack build:linux:armv7l",
-    "dist:linux:arm64": "run-s clean stage pack build:linux:arm64",
-    "dist:linux:mips64el": "run-s clean stage pack build:linux:mips64el",
-    "dist:darwin:x64": "run-s clean stage pack build:darwin:x64",
-    "dist:win32:ia32": "run-s clean stage pack build:win32:ia32",
-    "dist:win32:x64": "run-s clean stage pack build:win32:x64"
+  "name": "MavensMate-Desktop",
+  "version": "0.0.12",
+  "description": "MavensMate desktop app",
+  "author": {
+    "name": "Joe Ferraro",
+    "email": "ferraro.joseph@gmail.com",
+    "url": "https://github.com/joeferraro"
   },
   "license": "GPL-3.0",
-  "main": "src/main/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joeferraro/MavensMate-Desktop.git"
+  },
+  "scripts": {
+    "reset": "rm -rf app dist node_modules src/main/node_modules package-lock.json src/main/package-lock.json && yarn install",
+    "postinstall": "electron-builder install-app-deps",
+    "dev": "electron-webpack dev",
+    "compile": "electron-webpack",
+    "dist": "yarn compile && electron-builder",
+    "dist:dir": "yarn dist --dir"
+  },
+  "dependencies": {
+    "bluebird": "2.9.34",
+    "electron-squirrel-startup": "^1.0.0",
+    "keytar": "4.13.0",
+    "mavensmate": "github:MagisterAmica/MavensMate",
+    "uuid": "^3.3.2",
+    "nslog": "3.2.0",
+    "react": "0.14.9",
+    "react-addons-update": "^15.3.1",
+    "react-dom": "0.14.3",
+    "react-redux": "4.0.0",
+    "redux": "3.0.4",
+    "redux-devtools": "3.0.0-beta-3",
+    "redux-devtools-dock-monitor": "1.0.0-beta-3",
+    "redux-devtools-log-monitor": "1.0.0-beta-3",
+    "redux-thunk": "1.0.0",
+    "svg-inline-react": "^1.0.3",
+    "svg-inline-loader": "^0.8.0",
+    "source-map-support": "^0.5.13"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-do-expressions": "^7.5.0",
+    "@babel/plugin-proposal-export-default-from": "^7.5.2",
+    "@babel/plugin-proposal-export-namespace-from": "^7.5.2",
+    "@babel/plugin-proposal-function-bind": "^7.2.0",
+    "@babel/plugin-proposal-function-sent": "^7.5.0",
+    "@babel/plugin-proposal-json-strings": "^7.2.0",
+    "@babel/plugin-proposal-logical-assignment-operators": "^7.2.0",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.4.4",
+    "@babel/plugin-proposal-numeric-separator": "^7.2.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.2.0",
+    "@babel/plugin-proposal-throw-expressions": "^7.2.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/plugin-syntax-import-meta": "^7.2.0",
+    "@babel/preset-react": "^7.0.0",
+    "electron": "1.7.12",
+    "electron-builder": "^21.2.0",
+    "electron-webpack": "^2.7.4",
+    "fs-extra": "^8.1.0",
+    "modclean": "^3.0.0-beta.1",
+    "webpack": "^4.39.1"
+  },
   "build": {
     "appId": "com.mavens.mavensmate",
-    "app-category-type": "public.app-category.developer-tools",
-    "asar": false,
-    "productName": "MavensMate",
-    "name": "MavensMate-Desktop",
-    "npmRebuild": true,
-    "nodeGypRebuild": true,
-    "linux": {},
-    "osx": {
+    "productName": "MavensMate-Desktop",
+    "files": ["src/main/resources/**"],
+    "linux": {
+      "category": "public.app-category.developer-tools",
+      "target": [
+        {
+          "target": "dir",
+          "arch": ["x64"]
+        }
+      ]
+    },
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "dmg": {
       "contents": [
         {
           "x": 410,
@@ -61,48 +101,15 @@
         }
       ]
     },
-    "windows": {
-      "loadingGif": "./build/squirrel/loading.gif"
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
     }
-  },
-  "devDependencies": {
-    "babel-core": "6.14.0",
-    "babel-loader": "6.2.5",
-    "babel-preset-es2015": "6.1.18",
-    "babel-preset-react": "6.3.13",
-    "babel-preset-stage-0": "6.1.18",
-    "babel-runtime": "^6.26.0",
-    "css-loader": "^0.25.0",
-    "electron": "1.7.16",
-    "electron-builder": "^21.0.0",
-    "electron-packager": "^14.0.0",
-    "file-loader": "^0.8.5",
-    "fs-extra": "^0.30.0",
-    "gulp": "^4.0.0",
-    "modclean": "1.2.7",
-    "node-gyp-install": "^2.2.0",
-    "node-uuid": "1.4.8",
-    "npm-run-all": "4.1.5",
-    "react": "0.14.3",
-    "react-addons-update": "^15.3.1",
-    "react-dom": "0.14.3",
-    "react-redux": "4.0.0",
-    "redux": "3.0.4",
-    "redux-devtools": "3.0.0-beta-3",
-    "redux-devtools-dock-monitor": "1.0.0-beta-3",
-    "redux-devtools-log-monitor": "1.0.0-beta-3",
-    "redux-thunk": "1.0.0",
-    "rimraf": "^2.5.4",
-    "sass-loader": "^4.0.2",
-    "style-loader": "0.13.0",
-    "svg-inline-loader": "^0.6.1",
-    "svg-inline-react": "^1.0.2",
-    "url-loader": "0.5.7",
-    "webpack": "^1.12.9",
-    "webpack-dev-server": "1.14.0",
-    "webpack-node-externals": "^1.3.3"
-  },
-  "dependencies": {
-    "node-sass": "^3.13.1"
   }
 }
