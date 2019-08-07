@@ -24,8 +24,7 @@
     "bluebird": "2.9.34",
     "electron-squirrel-startup": "^1.0.0",
     "keytar": "4.13.0",
-    "mavensmate": "github:MagisterAmica/MavensMate",
-    "uuid": "^3.3.2",
+    "mavensmate": "https://github.com/MagisterAmica/MavensMate",
     "nslog": "3.2.0",
     "react": "0.14.9",
     "react-addons-update": "^15.3.1",
@@ -36,9 +35,10 @@
     "redux-devtools-dock-monitor": "1.0.0-beta-3",
     "redux-devtools-log-monitor": "1.0.0-beta-3",
     "redux-thunk": "1.0.0",
-    "svg-inline-react": "^1.0.3",
+    "source-map-support": "^0.5.13",
     "svg-inline-loader": "^0.8.0",
-    "source-map-support": "^0.5.13"
+    "svg-inline-react": "^1.0.3",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.5.5",
@@ -66,13 +66,17 @@
   "build": {
     "appId": "com.mavens.mavensmate",
     "productName": "MavensMate-Desktop",
-    "files": ["src/main/resources/**"],
+    "files": [
+      "src/main/resources/**"
+    ],
     "linux": {
       "category": "public.app-category.developer-tools",
       "target": [
         {
           "target": "dir",
-          "arch": ["x64"]
+          "arch": [
+            "x64"
+          ]
         }
       ]
     },
