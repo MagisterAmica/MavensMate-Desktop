@@ -51,7 +51,7 @@ var startServer = function() {
         port: 56248,
         openWindowFn: openUrlInNewTab,
         mode: 'desktop',
-        desktopVersion: require('./package.json').version,
+        desktopVersion: app.getVersion(),
         ipc: require('electron').ipcRenderer
       })
       .then(function(res) {
@@ -104,7 +104,7 @@ var attachMainWindow = function() {
             minWidth: 850,
             minHeight: 670,
             skipTaskbar: serverConfig.get('mm_windows_skip_taskbar'),
-            icon: path.join(__dirname, '..', 'resources', 'icon.png')
+            icon: path.join(__dirname, '..', 'resources', 'static', 'icon.png')
           });
 
           mainWindow.loadURL('file://' + __dirname + '/index.html');

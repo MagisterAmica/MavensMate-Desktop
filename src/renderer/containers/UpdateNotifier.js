@@ -24,7 +24,7 @@ class UpdateNotifier extends Component {
 
   _openUrl() {
     const electron = window.require('electron');
-    electron.shell.openExternal('https://github.com/joeferraro/MavensMate-Desktop/releases');
+    electron.shell.openExternal('https://github.com/MagisterAmica/MavensMate-Desktop/releases');
   }
 
   _close() {

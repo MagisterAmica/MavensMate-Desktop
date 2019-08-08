@@ -3,7 +3,7 @@ import {
   SHOW_UPDATE_NOTIFIER, HIDE_UPDATE_NOTIFIER, DESTROY_VIEW,
   UPDATE_VIEW, SHOW_VIEW_MANAGER, HIDE_VIEW_MANAGER
 } from '../actions/actions';
-const uuid = require('node-uuid');
+const uuid = require('uuid/v4');
 const update = require('react-addons-update');
 
 const initialState = {
@@ -36,7 +36,7 @@ function views(state = [], action) {
           })
         }),
         {
-          id: uuid.v1(),
+          id: uuid(),
           show: true,
           url: url,
           pid: action.pid,
