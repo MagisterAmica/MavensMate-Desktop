@@ -13,6 +13,7 @@ addons:
     - icnsutils
     - graphicsmagick
     - xz-utils
+    - rpm
 os:
 - linux
 - osx
