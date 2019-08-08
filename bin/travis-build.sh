@@ -17,14 +17,14 @@ yarn install
 
 if [ "${OS}" = "linux" ]; then
   echo "running linux build"
-  yarn dist --linux
+  yarn publish
 elif [ "${OS}" = "osx" ]; then
   echo "running osx build"
   security find-identity -v -p codesigning
-  yarn dist --macos
+  yarn publish
 elif [ "${OS}" = "windows" ]; then
   echo "running windows build"
-  yarn dist --windows
+  yarn publish
 fi
 
 ls dist

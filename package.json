@@ -18,6 +18,7 @@
     "dev": "electron-webpack dev",
     "compile": "electron-webpack",
     "dist": "yarn compile && electron-builder --publish never",
+    "publish": "yarn compile && electron-builder --publish onTagOrDraft",
     "dist:dir": "yarn dist --dir"
   },
   "dependencies": {
@@ -138,6 +139,11 @@
           ]
         }
       ]
-    }
+    },
+    "publish": [
+      {
+        "provider": "github"
+      }
+    ]
   }
 }
