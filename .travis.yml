@@ -21,8 +21,8 @@ os:
 cache:
   directories:
   - node_modules
-  - app/node_modules
-  - "$HOME/.electron"
+  - $HOME/.cache/electron
+  - $HOME/.cache/electron-builder
 script:
 - echo Building MavensMate Desktop ...
 - "./bin/travis-build.sh"
