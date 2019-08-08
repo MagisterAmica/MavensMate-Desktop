@@ -15,6 +15,7 @@ addons:
     - xz-utils
     - rpm
     - libarchive-tools
+    - jq
 os:
 - linux
 - osx
@@ -34,10 +35,11 @@ env:
 branches:
   except:
   - "/^v\\d+\\.\\d+\\.\\d+(\\-(alpha|beta)\\.\\d+$|$)/"
+before_deploy:
+- export TRAVIS_TAG="$(jq --raw-output '.version' package.json)"
 deploy:
   provider: releases
   api_key:
     secure: ibuoKFOl9PiLLtXOYy8PEWzIK5OPfEhZAptU/uWXjHb/pZ7W8IAwurB2mX/nVOLbmm6prYYjGBTCivzKeUTMhCBfO2dwrjeyL7l6WprCoXGHB8dhseb7j996zpDfCVFc2HzJK3/ShS9sTeVaY+ifmfOoanGgC2dn7CqDML5YeDAeKB51Wppqn4ZfPYaZ0hoGPU+7nd5R1MDO82bIRpPw5bLHvZfZ4ncTFn5u8vmxBN30RrHF3ceA9LoAuwWudD9804jLipzACzEarQIYhIbauIOdc2vpm5uOnH1URhl9GFKVoU9r4RrWPiEwH72t2xmfZDSZ9Ymql2xEsnMZJz2+3heN/IHN0DRzTBlt7h8za4L2HJ8S1s/0zTV8Yfxxwsln7vGmKDT9HXMSUY4DkFIyxkKeYGOG8vjKl1uGS5S2L+rHwKOHEle4xO65yfcYAsouYt0Kru7PD3VD+3C5tPA3RjSNDnZvZVKugH6dRhu1fnrCOcS5lHbZL9n3g2RlZL7WP/zz7GLI5SVHSFqp/Qze7T6prNz48p8fQzcMD0KMwfV61aZIwDea1f2j4YwjR0DO48GpK3ofbln9r7mPgU2WOPN61ngW5srDOHAhg0UCPF+dxjw2dbRN/cYpCiDiffP/fF4d6CXWOeUpenQ4YK4RyqcPNfVYqoPdkTvECs8+ND8=
   file: dist/MavensMate-Desktop*
-  on:
-    tags: true
+  overwrite: true
