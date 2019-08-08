@@ -1,5 +1,10 @@
 #!/bin/bash
 
+ACTION="build"
+if ! [ -z "${GH_TOKEN}" ]; then
+  ACTION="dist"
+fi
+
 set -e # Automatic exit on any failure
 set -x # Print commands after they are expanded but before they are executed
 
@@ -17,14 +22,14 @@ yarn install
 
 if [ "${OS}" = "linux" ]; then
   echo "running linux build"
-  yarn dist --linux
+  yarn "${ACTION}"
 elif [ "${OS}" = "osx" ]; then
   echo "running osx build"
   security find-identity -v -p codesigning
-  yarn dist --macos
+  yarn "${ACTION}"
 elif [ "${OS}" = "windows" ]; then
   echo "running windows build"
-  yarn dist --windows
+  yarn "${ACTION}"
 fi
 
 ls dist

@@ -17,8 +17,8 @@
     "postinstall": "electron-builder install-app-deps",
     "dev": "electron-webpack dev",
     "compile": "electron-webpack",
-    "dist": "yarn compile && electron-builder --publish never",
-    "dist:dir": "yarn dist --dir"
+    "build": "yarn compile && electron-builder --publish never",
+    "dist": "yarn compile && electron-builder --publish onTagOrDraft"
   },
   "dependencies": {
     "bluebird": "2.9.34",
@@ -138,6 +138,11 @@
           ]
         }
       ]
-    }
+    },
+    "publish": [
+      {
+        "provider": "github"
+      }
+    ]
   }
 }
