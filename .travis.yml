@@ -25,6 +25,7 @@ cache:
   - $HOME/.cache/electron
   - $HOME/.cache/electron-builder
   - ~/AppData/Local/electron/Cache/
+  - ~/Library/Caches/electron/
   - npm
   - yarn
 script:
