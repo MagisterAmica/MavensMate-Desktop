@@ -17,7 +17,7 @@
     "postinstall": "electron-builder install-app-deps",
     "dev": "electron-webpack dev",
     "compile": "electron-webpack",
-    "dist": "yarn compile && electron-builder",
+    "dist": "yarn compile && electron-builder --publish never",
     "dist:dir": "yarn dist --dir"
   },
   "dependencies": {
