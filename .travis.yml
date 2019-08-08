@@ -45,5 +45,3 @@ deploy:
   file_glob: true
   file: dist/MavensMate-Desktop*
   overwrite: true
-  on:
-    tags: true
