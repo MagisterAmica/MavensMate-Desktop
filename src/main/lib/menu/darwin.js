@@ -204,7 +204,7 @@ module.exports = function(attachWindow) {
         },
         {
           label: 'Check for Updates',
-          click: function() { require('electron').shell.openExternal('https://github.com/joeferraro/MavensMate-Desktop/releases') }
+          click: function() { require('electron').shell.openExternal('https://github.com/MagisterAmica/MavensMate-Desktop/releases') }
         },
         {
           label: 'Learn More',
@@ -212,7 +212,7 @@ module.exports = function(attachWindow) {
         },
         {
           label: 'Submit a GitHub Issue',
-          click: function() { require('electron').shell.openExternal('https://github.com/joeferraro/MavensMate/issues') }
+          click: function() { require('electron').shell.openExternal('https://github.com/MagisterAmica/MavensMate/issues') }
         }
       ]
     }

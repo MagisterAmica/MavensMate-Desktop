@@ -7,7 +7,7 @@ By participating, you are expected to uphold this code. Please report unacceptab
 
 ## Submitting Issues
 
-**All issues should be submitted to [the central MavensMate issue repository](https://github.com/joeferraro/MavensMate/issues)**
+**All issues should be submitted to [the central MavensMate issue repository](https://github.com/MagisterAmica/MavensMate/issues)**
 
 ## Submitting Pull Requests
 

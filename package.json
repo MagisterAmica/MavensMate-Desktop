@@ -10,7 +10,7 @@
   "license": "GPL-3.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/joeferraro/MavensMate-Desktop.git"
+    "url": "https://github.com/MagisterAmica/MavensMate-Desktop.git"
   },
   "scripts": {
     "reset": "rm -rf app dist yarn.lock node_modules src/main/node_modules package-lock.json src/main/package-lock.json && yarn install",
