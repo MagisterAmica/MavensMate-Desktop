@@ -22,7 +22,6 @@
   },
   "dependencies": {
     "bluebird": "2.9.34",
-    "electron-squirrel-startup": "^1.0.0",
     "keytar": "4.13.0",
     "mavensmate": "https://github.com/MagisterAmica/MavensMate",
     "nslog": "3.2.0",

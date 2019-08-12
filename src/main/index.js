@@ -4,8 +4,6 @@
 var electron        = require('electron');
 var app             = electron.app;
 
-if (require('electron-squirrel-startup')) app.quit();
-
 var Promise         = require('bluebird');
 var path            = require('path');
 var BrowserWindow   = electron.BrowserWindow;
