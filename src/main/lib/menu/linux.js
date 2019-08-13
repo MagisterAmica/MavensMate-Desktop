@@ -112,7 +112,8 @@ module.exports = function(attachWindow) {
       label: 'Help',
       submenu: [
         {
-          label: 'MavensMate v'+app.getVersion()
+          label: 'MavensMate v'+app.getVersion(),
+          click: function() { require('electron').shell.openExternal('https://github.com/MagisterAmica/MavensMate-Desktop/releases/v' + app.getVersion()) }
         },
         {
           label: 'Check for Updates',
