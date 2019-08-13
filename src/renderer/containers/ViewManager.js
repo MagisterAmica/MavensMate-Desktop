@@ -259,7 +259,7 @@ class ViewManager extends Component {
                   <div className="slds-text-heading--medium slds-col--padded "><h2>View Manager</h2></div>
                 </div>
               </h2>
-              <button className="slds-button slds-button--icon-inverse slds-modal__close" data-aljs-dismiss="modal" onClick={() => this._hide()}>
+              <button className="slds-button slds-button--icon-inverse slds-modal__close" onClick={() => this._hide()}>
                 <svg aria-hidden={true} className="slds-button__icon slds-button__icon--large">
                   <use xlinkHref={'#utility-sprite-close'}></use>
                 </svg>
