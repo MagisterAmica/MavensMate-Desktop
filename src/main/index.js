@@ -102,7 +102,10 @@ var attachMainWindow = function() {
             minWidth: 850,
             minHeight: 670,
             skipTaskbar: serverConfig.get('mm_windows_skip_taskbar'),
-            icon: path.join(__dirname, '..', 'resources', 'static', 'icon.png')
+            icon: path.join(__dirname, '..', 'resources', 'static', 'icon.png'),
+            webPreferences: {
+              nodeIntegration: true,
+            },
           });
 
           mainWindow.loadURL('file://' + __dirname + '/index.html');
@@ -168,19 +171,18 @@ app.on('activate', (evt, hasVisibleWindows) => {
   }
 });
 
-// enforce a single version of the app
-var shouldQuit = app.makeSingleInstance(function(commandLine, workingDirectory) {
-  // Someone tried to run a second instance, we should focus our window.
-  if (mainWindow) {
-    if (mainWindow.isMinimized()) mainWindow.restore();
-    mainWindow.focus();
-  } else {
-    attachMainWindow();
-  }
-});
-
-if (shouldQuit) {
+if (!app.requestSingleInstanceLock()) {
   app.quit();
+} else {
+  app.on('second-instance', (event, commandLine, workingDirectory) => {
+    // Someone tried to run a second instance, we should focus our window.
+    if (mainWindow) {
+      if (mainWindow.isMinimized()){
+        mainWindow.restore()
+      }
+      mainWindow.focus();
+    }
+  });
 }
 
 // This method will be called when Electron has finished
