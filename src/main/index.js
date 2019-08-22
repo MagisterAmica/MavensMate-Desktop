@@ -103,6 +103,7 @@ var attachMainWindow = function() {
             minHeight: 670,
             skipTaskbar: serverConfig.get('mm_windows_skip_taskbar'),
             icon: path.join(__dirname, '..', 'resources', 'static', 'icon.png'),
+            title: `${app.getName()} - ${app.getVersion()}`,
             webPreferences: {
               nodeIntegration: true,
               webviewTag: true,
