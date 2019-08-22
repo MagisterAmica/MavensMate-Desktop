@@ -23,7 +23,9 @@ webview {
 }
 
 webview.hide,
-web-view-wrapper.hide {
+web-view-wrapper.hide,
+.webview.hide,
+.web-view-wrapper.hide {
   flex: 0 1;
   width: 0px;
   height: 0px;
