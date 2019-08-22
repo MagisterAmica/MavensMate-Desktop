@@ -105,6 +105,7 @@ var attachMainWindow = function() {
             icon: path.join(__dirname, '..', 'resources', 'static', 'icon.png'),
             webPreferences: {
               nodeIntegration: true,
+              webviewTag: true,
             },
           });
 
