@@ -4,7 +4,7 @@ import {
   UPDATE_VIEW, SHOW_VIEW_MANAGER, HIDE_VIEW_MANAGER
 } from '../actions/actions';
 const uuid = require('uuid/v4');
-const update = require('react-addons-update');
+const update = require('immutability-helper');
 
 const initialState = {
   viewManager: {
