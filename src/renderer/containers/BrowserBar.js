@@ -25,7 +25,13 @@ class BrowserBar extends Component {
   render() {
     return (
       <div className={"browser-bar slds-notify_container "+(!this.props.show?'slds-hide':'')}>
-        <div className="slds-notify slds-notify--alert slds-theme--info" role="alert">
+        <div className="slds-grid slds-grid--align-end slds-theme--info slds-p-right--medium" role="alert">
+          <button className="slds-button slds-notify__close slds-button--icon-inverse" onClick={this.back}>
+            <svg aria-hidden="true" className="slds-button__icon">
+              <use xlinkHref="#utility-sprite-back"></use>
+            </svg>
+            <span className="slds-assistive-text">Back</span>
+          </button>
           <button className="slds-button slds-notify__close slds-button--icon-inverse" onClick={this.reload}>
             <svg aria-hidden="true" className="slds-button__icon">
               <use xlinkHref="#utility-sprite-refresh"></use>
@@ -37,12 +43,6 @@ class BrowserBar extends Component {
               <use xlinkHref="#utility-sprite-forward"></use>
             </svg>
             <span className="slds-assistive-text">Forward</span>
-          </button>
-          <button className="slds-button slds-notify__close slds-button--icon-inverse" onClick={this.back}>
-            <svg aria-hidden="true" className="slds-button__icon">
-              <use xlinkHref="#utility-sprite-back"></use>
-            </svg>
-            <span className="slds-assistive-text">Back</span>
           </button>
         </div>
       </div>
